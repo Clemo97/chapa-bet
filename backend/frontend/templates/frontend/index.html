@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Product List</title>
+</head>
+<body>
+    <div id="product-list">
+        <!-- Product list will be displayed here -->
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+$(document).ready(function () {
+    $.ajax({
+        url: "http://127.0.0.1:8000/shop/products",
+        type: "GET",
+        dataType: "json",
+        success: function (products) {
+            var productList = $("#product-list");
+            var html = "";
+
+            $.each(products, function (index, product) {
+                var imagePath = "/home/clement/Documents/Python/session_auth/backend" + product.image;
+                html += "<div>";
+                html += "<h2>" + product.name + "</h2>";
+                html += "<p>Price: " + product.original_price + "</p>";
+                html += '<img src="' + imagePath + '" alt="' + product.name + '" />';
+                // Add more product details as needed
+                html += "</div>";
+            });
+
+            productList.html(html);
+        },
+        error: function (xhr, textStatus, errorThrown) {
+            console.log("Error:", errorThrown);
+        },
+    });
+});
+
+    </script> <!-- Your custom JavaScript file -->
+</body>
+</html>
