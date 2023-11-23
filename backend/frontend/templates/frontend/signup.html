@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Signup</title>
+</head>
+<body>
+    <h1>User Signup</h1>
+    <form id="signupForm" method="post" action="http://127.0.0.1:8000/accounts/register">
+        {% csrf_token %}
+        <label for="username">Username:</label><br>
+        <input type="text" id="username" name="username"><br>
+        <label for="phone">Phone:</label><br>
+        <input type="text" id="phone" name="phone"><br>
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password"><br>
+        <label for="re_password">Confirm Password:</label><br>
+        <input type="password" id="re_password" name="re_password"><br><br>
+        <input type="submit" value="Sign Up">
+    </form>
+</body>
+</html>

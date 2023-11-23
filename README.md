@@ -6,4 +6,4 @@ In order to test out this project, follow these steps:
 - in the backend folder, run: python3 -m venv venv
 - then activate the virtual environment
 - in the backend folder, run: pip install -r requirements.txt
-- go to backend/session_auth/settings.py, and under DATABASES, set the PASSWORD field to your database password# chapa-bet
+- go to backend/session_auth/settings.py, and under DATABASES, set the PASSWORD field to your database password.
