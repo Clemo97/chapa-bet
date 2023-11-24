@@ -7,3 +7,6 @@ def list(request):
 
 def signup(request):
 	return render(request, 'frontend/signup.html')
+
+def login(request):
+	return render(request, 'frontend/login.html')

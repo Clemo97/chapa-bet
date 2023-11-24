@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Login</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>User Login</h1>
+    <form id="loginForm" method="post" action="http://127.0.0.1:8000/accounts/login">
+        {% csrf_token %}
+        <label for="username">Username:</label><br>
+        <input type="text" id="username" name="username"><br>
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password"><br><br>
+        <input type="submit" value="Login">
+    </form>
+
+    <script>
+        $(document).ready(function() {
+            $('#loginForm').on('submit', function(event) {
+                event.preventDefault(); // Prevent default form submission
+
+                // Get form data
+                const formData = new FormData(this);
+
+                // Make a POST request to the login endpoint
+                $.ajax({
+                    url: 'http://127.0.0.1:8000/accounts/login',
+                    type: 'POST',
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    headers: {
+                        'X-CSRFToken': '{{ csrf_token }}' // Replace with your actual CSRF token
+                    },
+                    success: function(response) {
+                        const username = response.username; // Assuming the username is available in the response
+                        alert(`Login successful! Welcome, ${username}. Redirecting to home page.`);
+                        window.location.href = 'index.html'; // Redirect to home page
+                    },
+                    error: function(xhr, status, error) {
+                        alert('Login failed! Please check your credentials.'); // Handle failed login
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -7,6 +7,7 @@ class Product(models.Model):
     promotional_price = models.DecimalField(max_digits=10, decimal_places=2)
     savings_percentage = models.DecimalField(max_digits=5, decimal_places=2)
     image = models.ImageField(upload_to='product_images/')
+    image_url = models.CharField(max_length=200, default="https://images.pexels.com/photos/90946/pexels-photo-90946.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")
     weight_or_volume = models.CharField(max_length=20)  # Kilogram/Litre or Size (S/L/XL)
 
     # Other fields as per your requirements

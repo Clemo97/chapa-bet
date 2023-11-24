@@ -17,5 +17,33 @@
         <input type="password" id="re_password" name="re_password"><br><br>
         <input type="submit" value="Sign Up">
     </form>
+
+    <script>
+        document.getElementById('signupForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // Get form data
+            const formData = new FormData(this);
+
+            // Make a POST request to the signup endpoint
+            fetch('http://127.0.0.1:8000/accounts/register', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                // Check if the signup was successful (you might need to adjust this logic)
+                if (response.ok) {
+                    alert('Signup successful! Redirecting to home page.');
+                    window.location.href = 'index.html'; // Redirect to home page
+                } else {
+                    alert('Signup failed! Please try again.'); // Handle failed signup
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Signup failed! Please try again.'); // Handle errors
+            });
+        });
+    </script>
 </body>
 </html>

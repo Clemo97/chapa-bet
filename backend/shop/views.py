@@ -9,6 +9,8 @@ from rest_framework.permissions import IsAuthenticated
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.permissions import AllowAny
+from django.shortcuts import get_object_or_404
+
 
 
 @method_decorator(csrf_exempt, name='dispatch')
@@ -79,3 +81,23 @@ class OrderItemDetailView(generics.RetrieveUpdateDestroyAPIView):
         instance = self.get_object()
         self.perform_destroy(instance)
         return Response(status=status.HTTP_204_NO_CONTENT)
+    
+    
+class AddProductToOrder(APIView):
+    def post(self, request):
+        # Extract product ID and quantity from the request data
+        product_id = request.data.get('product_id')
+        quantity = request.data.get('quantity')
+
+        # Fetch the product object and the user's order
+        product = get_object_or_404(Product, pk=product_id)
+        user = request.user
+        order, created = Order.objects.get_or_create(user=user, status='pending')
+
+        # Create or update OrderItem for the product in the user's order
+        order_item, created = OrderItem.objects.get_or_create(order=order, product=product)
+        order_item.quantity += int(quantity)
+        order_item.save()
+
+        serializer = OrderItemSerializer(order_item)
+        return Response(serializer.data, status=status.HTTP_201_CREATED)

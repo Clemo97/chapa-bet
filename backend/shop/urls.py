@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import ProductDetailView, OrderCreate, ProductListView, UserOrdersListView, OrderItemDetailView
+from .views import ProductDetailView, OrderCreate, ProductListView, UserOrdersListView, OrderItemDetailView, AddProductToOrder
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -10,4 +10,6 @@ urlpatterns = [
     path('orders/create/', OrderCreate.as_view(), name='order-create'),
     path('orders/user/', UserOrdersListView.as_view(), name='user-orders'),
     path('orderitems/<int:pk>/', OrderItemDetailView.as_view(), name='orderitem-detail'),  # Add the new view for OrderItem
+    path('add-product-to-order/', AddProductToOrder.as_view(), name='add-product-to-order'),  # New view endpoint
+
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
