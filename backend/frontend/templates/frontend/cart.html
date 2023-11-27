@@ -19,6 +19,7 @@
                         <th>Name</th>
                         <th>Price</th>
                         <th>Quantity</th>
+                        <th>Subtotal</th>
                     </tr>
                 </thead>
                 <tbody id="cartTableBody">
@@ -57,6 +58,7 @@
                             row += "<td>" + item.product.name + "</td>";
                             row += "<td>Ksh. " + item.product.promotional_price + "</td>";
                             row += "<td>" + item.quantity + "</td>";
+                            row += "<td>Ksh. " + item.subtotal + "</td>";
                             row += "</tr>";
 
                             cartTableBody.append(row);
