@@ -7,7 +7,7 @@ In order to test out this project, follow these steps:
 - then activate the virtual environment `source venv/bin/activate`
 - in the backend folder, run: `pip install -r requirements.txt`
 - make migrations by running the command `python manage.py makemigrations`
-- followed by `python manage.py makemigrations`
+- followed by `python manage.py migrate`
 - go to backend/session_auth/settings.py, and under DATABASES, set the PASSWORD field to your database password.
 - start the server `python manage.py runserver 8100`
 python manage.py makemigrations
