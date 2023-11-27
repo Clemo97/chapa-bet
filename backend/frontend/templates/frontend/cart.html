@@ -55,7 +55,7 @@
                             // Append a new row for each item in the order
                             var row = "<tr>";
                             row += "<td>" + item.product.name + "</td>";
-                            row += "<td>$" + item.product.promotional_price + "</td>";
+                            row += "<td>Ksh. " + item.product.promotional_price + "</td>";
                             row += "<td>" + item.quantity + "</td>";
                             row += "</tr>";
 
@@ -67,7 +67,7 @@
                     });
 
                     // Display total price
-                    $("#totalPrice").text("$" + totalPrice.toFixed(2));
+                    $("#totalPrice").text("Ksh. " + totalPrice.toFixed(2));
                 },
                 error: function (xhr, textStatus, errorThrown) {
                     console.log("Error fetching order details:", errorThrown);
