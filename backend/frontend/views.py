@@ -10,3 +10,7 @@ def signup(request):
 
 def login(request):
 	return render(request, 'frontend/login.html')
+
+def cart_view(request):
+	return render(request, 'frontend/cart.html')
+

@@ -43,6 +43,9 @@
                     <li class="nav-item" id="loginLink">
                         <a class="nav-link" href="login.html">Login</a>
                     </li>
+                    <li class="nav-item d-none" id="cartLink">
+                        <a class="nav-link" href="cart.html">Cart</a>
+                    </li>
                     <!-- Logout Link (Hidden by default) -->
                     <li class="nav-item d-none" id="logoutLink">
                         <a class="nav-link" href="http://127.0.0.1:8000/accounts/logout">Logout</a>
@@ -75,10 +78,14 @@
                         $('#signupLink').addClass('d-none');
                         $('#loginLink').addClass('d-none');
                         $('#logoutLink').removeClass('d-none');
+                        $('#logoutLink').removeClass('d-none');
+                        $('#cartLink').removeClass('d-none');
                     } else {
                         $('#signupLink').removeClass('d-none');
                         $('#loginLink').removeClass('d-none');
                         $('#logoutLink').addClass('d-none');
+                        $('#cartLink').addClass('d-none');
+                        
                     }
                 },
                 error: function (xhr, textStatus, errorThrown) {
@@ -141,6 +148,7 @@
             event.preventDefault(); // Prevent default link behavior
             handleLogout(); // Call logout function
         });
+        
         });
     </script>
 </body>

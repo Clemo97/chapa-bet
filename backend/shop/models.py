@@ -39,9 +39,7 @@ class OrderItem(models.Model):
     # Other fields related to order item
 
     def subtotal(self):
-        # Calculate and return subtotal for the order item (product price * quantity)
-        # Implement your logic here
-        pass
+        return self.quantity * self.product.promotional_price
 
     # Other methods as per your requirements
 
