@@ -11,7 +11,9 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 import os
+import dj_database_url
 from pathlib import Path
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -26,7 +28,7 @@ SECRET_KEY = 'ysb(#wa4t+ee6^wf*=@d7_(c*z##^6ipkru2yol$elc7ez^7qw'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -42,6 +44,7 @@ INSTALLED_APPS = [
     'accounts',
     'user_profile',
     'shop',
+    'drf_yasg',
     'frontend.apps.FrontendConfig',
 ]
 
@@ -89,6 +92,9 @@ DATABASES = {
     }
 }
 
+# Define your DATABASES dictionary
+
+# postgres://clement:1G4HuURPe6YtgIqHdVf95Zxiv9cYSKKX@dpg-cliri1vjc5ks73bm0u80-a.frankfurt-postgres.render.com/session_auth_app
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -148,3 +154,4 @@ MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'mediafiles')
 
 # URL used to access the media
 MEDIA_URL = '/media/'
+

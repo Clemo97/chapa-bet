@@ -1,0 +1,501 @@
+openapi: 3.0.2
+info:
+  title: ''
+  version: ''
+paths:
+  /accounts/authenticated:
+    get:
+      operationId: listCheckAuthenticateds
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items: {}
+          description: ''
+      tags:
+      - accounts
+  /accounts/csrf_cookie:
+    get:
+      operationId: listGetCSRFTokens
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items: {}
+          description: ''
+      tags:
+      - accounts
+  /profile/user:
+    get:
+      operationId: listGetUserProfiles
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items: {}
+          description: ''
+      tags:
+      - profile
+  /shop/products/:
+    get:
+      operationId: listProducts
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items: {}
+          description: ''
+      tags:
+      - shop
+    post:
+      operationId: createProductList
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema: {}
+          application/x-www-form-urlencoded:
+            schema: {}
+          multipart/form-data:
+            schema: {}
+      responses:
+        '201':
+          content:
+            application/json:
+              schema: {}
+          description: ''
+      tags:
+      - shop
+  /shop/products/{id}/:
+    get:
+      operationId: retrieveProductDetail
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema: {}
+          description: ''
+      tags:
+      - shop
+  /shop/orders/user/:
+    get:
+      operationId: listUserOrders
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items: {}
+          description: ''
+      tags:
+      - shop
+  /shop/orderitems/{id}/:
+    get:
+      operationId: retrieveOrderItem
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this order item.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderItem'
+          description: ''
+      tags:
+      - shop
+    put:
+      operationId: updateOrderItem
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this order item.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OrderItem'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/OrderItem'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/OrderItem'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderItem'
+          description: ''
+      tags:
+      - shop
+    patch:
+      operationId: partialUpdateOrderItem
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this order item.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OrderItem'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/OrderItem'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/OrderItem'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderItem'
+          description: ''
+      tags:
+      - shop
+    delete:
+      operationId: destroyOrderItem
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this order item.
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - shop
+  /accounts/register:
+    post:
+      operationId: createSignup
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema: {}
+          application/x-www-form-urlencoded:
+            schema: {}
+          multipart/form-data:
+            schema: {}
+      responses:
+        '201':
+          content:
+            application/json:
+              schema: {}
+          description: ''
+      tags:
+      - accounts
+  /accounts/login:
+    post:
+      operationId: createLogin
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema: {}
+          application/x-www-form-urlencoded:
+            schema: {}
+          multipart/form-data:
+            schema: {}
+      responses:
+        '201':
+          content:
+            application/json:
+              schema: {}
+          description: ''
+      tags:
+      - accounts
+  /accounts/logout:
+    post:
+      operationId: createLogout
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema: {}
+          application/x-www-form-urlencoded:
+            schema: {}
+          multipart/form-data:
+            schema: {}
+      responses:
+        '201':
+          content:
+            application/json:
+              schema: {}
+          description: ''
+      tags:
+      - accounts
+  /shop/orders/create/:
+    post:
+      operationId: createOrder
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Order'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Order'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Order'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+          description: ''
+      tags:
+      - shop
+  /shop/add-product-to-order/:
+    post:
+      operationId: createAddProductToOrder
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema: {}
+          application/x-www-form-urlencoded:
+            schema: {}
+          multipart/form-data:
+            schema: {}
+      responses:
+        '201':
+          content:
+            application/json:
+              schema: {}
+          description: ''
+      tags:
+      - shop
+  /profile/update:
+    put:
+      operationId: updateUpdateUserProfile
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema: {}
+          application/x-www-form-urlencoded:
+            schema: {}
+          multipart/form-data:
+            schema: {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema: {}
+          description: ''
+      tags:
+      - profile
+  /accounts/delete:
+    delete:
+      operationId: destroyDeleteAccount
+      description: ''
+      parameters: []
+      responses:
+        '204':
+          description: ''
+      tags:
+      - accounts
+components:
+  schemas:
+    OrderItem:
+      type: object
+      properties:
+        product:
+          type: object
+          properties:
+            id:
+              type: integer
+              readOnly: true
+            name:
+              type: string
+              maxLength: 100
+            original_price:
+              type: string
+              format: decimal
+              multipleOf: 0.01
+              maximum: 100000000
+              minimum: -100000000
+            promotional_price:
+              type: string
+              format: decimal
+              multipleOf: 0.01
+              maximum: 100000000
+              minimum: -100000000
+            savings_percentage:
+              type: string
+              format: decimal
+              multipleOf: 0.01
+              maximum: 1000
+              minimum: -1000
+            image:
+              type: string
+              format: binary
+            image_url:
+              type: string
+              maxLength: 200
+            weight_or_volume:
+              type: string
+              maxLength: 20
+          required:
+          - name
+          - original_price
+          - promotional_price
+          - savings_percentage
+          - image
+          - weight_or_volume
+        quantity:
+          type: integer
+          maximum: 2147483647
+          minimum: 0
+        subtotal:
+          type: string
+          readOnly: true
+      required:
+      - product
+    Order:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+        status:
+          type: string
+          maxLength: 20
+        payment_method:
+          type: string
+          nullable: true
+          maxLength: 50
+        transaction_id:
+          type: string
+          nullable: true
+          maxLength: 100
+        user:
+          type: integer
+        items:
+          type: array
+          items:
+            type: object
+            properties:
+              product:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    readOnly: true
+                  name:
+                    type: string
+                    maxLength: 100
+                  original_price:
+                    type: string
+                    format: decimal
+                    multipleOf: 0.01
+                    maximum: 100000000
+                    minimum: -100000000
+                  promotional_price:
+                    type: string
+                    format: decimal
+                    multipleOf: 0.01
+                    maximum: 100000000
+                    minimum: -100000000
+                  savings_percentage:
+                    type: string
+                    format: decimal
+                    multipleOf: 0.01
+                    maximum: 1000
+                    minimum: -1000
+                  image:
+                    type: string
+                    format: binary
+                  image_url:
+                    type: string
+                    maxLength: 200
+                  weight_or_volume:
+                    type: string
+                    maxLength: 20
+                required:
+                - name
+                - original_price
+                - promotional_price
+                - savings_percentage
+                - image
+                - weight_or_volume
+              quantity:
+                type: integer
+                maximum: 2147483647
+                minimum: 0
+              subtotal:
+                type: string
+                readOnly: true
+            required:
+            - product
+          readOnly: true
+        total_price:
+          type: string
+          readOnly: true
+      required:
+      - user
