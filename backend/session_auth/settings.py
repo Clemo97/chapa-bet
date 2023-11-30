@@ -82,15 +82,15 @@ WSGI_APPLICATION = 'session_auth.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'session_auth',
-#         'USER': 'clement',
-#         'PASSWORD': 'clemolumz',
-#         'HOST': 'localhost'
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'session_auth',
+        'USER': 'clement',
+        'PASSWORD': 'clemolumz',
+        'HOST': 'localhost'
+    }
+}
 
 # Define your DATABASES dictionary
 
