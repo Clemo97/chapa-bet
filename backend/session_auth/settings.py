@@ -95,6 +95,8 @@ DATABASES = {
 # Define your DATABASES dictionary
 
 database_url = os.environ.get("DATABASE_URL")
+DATABASES["default"] = dj_database_url.parse(database_url)
+
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
